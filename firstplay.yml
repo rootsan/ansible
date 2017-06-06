@@ -7,9 +7,9 @@
   # Can you use variables, identity with vars:
   vars:
           issue: /etc/os-release
-  tasks:
+  tasks: #Updating the system, the name lists all the packages and checking that ultimate version state
   - yum:
-      name: *
+      name: '*'
       state: latest
   - name: copy examples files
     copy: src=examples/issue dest={{ issue }} owner=root mode=0660
