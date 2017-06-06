@@ -9,7 +9,7 @@
           issue: /etc/os-release
   tasks:
   - yum:
-      name: *
+      name: '*'
       state: latest
   - name: copy examples files
     copy: src=examples/issue dest={{ issue }} owner=root mode=0660
