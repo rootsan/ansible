@@ -11,9 +11,10 @@
   - yum:
       name: '*'
       state: latest
+  
   - name: copy examples files
-    copy: src=examples/issue dest={{ issue }} owner=root mode=0660
-# do not forget create and fix directory path
+    copy: src=examples/issue dest={{ issue }} owner=root mode=0660 
+    # do not forget create and fix directory path
   - service:
       name: httpd
       state: started
