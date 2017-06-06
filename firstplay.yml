@@ -1,0 +1,20 @@
+#The convention YAML files should be start with --- always, to accomplish with the recommended practice.
+#The comments start with # how would files in Linux, every play muts contain a set of hosts and a list of task to be execute on those hosts.
+#Think and keep simple (T&K), the Playbook has this goal
+---
+- hosts: all
+  remote_user: root
+  # Can you use variables, identity with vars:
+  vars:
+          issue: /etc/os-release
+  tasks:
+  - yum:
+      name: *
+      state: latest
+  - name: copy examples files
+    copy: src=examples/issue dest={{ issue }} owner=root mode=0660
+# do not forget create and fix directory path
+  - service:
+      name: httpd
+      state: started
+      enabled: yes
