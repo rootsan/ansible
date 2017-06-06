@@ -8,6 +8,11 @@
   vars:
           issue: /etc/os-release
   tasks: #Updating the system, the name lists all the packages and checking that ultimate version state
+  - redhat_subscription:
+        state: present
+        username: someuser
+        password: anypasswd
+        autosubscribe: true
   - yum:
       name: '*'
       state: latest
@@ -18,3 +23,5 @@
       name: httpd
       state: started
       enabled: yes
+
+...
