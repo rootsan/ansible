@@ -5,23 +5,19 @@
 - hosts: all
   remote_user: root
   # Can you use variables, identity with vars:
-  vars:
-          issue: /etc/os-release
   tasks: #Updating the system, the name lists all the packages and checking that ultimate version state
   - redhat_subscription:
         state: present
         username: someuser
         password: anypasswd
-        autosubscribe: true
+  - name: Manage repos
+    shell: |
+            subscription-manager attach --pool=8a85f98157083df101570b65bfd10580
+            subscription-manager repos --disable=*
+            subscription-manager repos --enable=rhel-7-server-rpms
+    when:  ansible_distribution == "RedHat" and ansible_distribution_major_version|int >= 7
+    #Update system
   - yum:
       name: '*'
       state: latest
-  - name: copy examples files
-    copy: src=examples/issue dest={{ issue }} owner=root mode=0660 
-    # do not forget create and fix directory path
-  - service:
-      name: httpd
-      state: started
-      enabled: yes
-
 ...
