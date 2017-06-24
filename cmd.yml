@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+          - name: Test Command
+            shell: |
+                    touch file-$(date +%d-%m-%Y)
+                    echo "Hola Lola" > file-$(date +%d-%m-%Y)
+            args:
+                    chdir: /tmp/
