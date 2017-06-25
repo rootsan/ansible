@@ -1,9 +1,34 @@
 ---
-- hosts: all
+- hosts: lola
   remote_user: root
   tasks:
           - user:
                   name: ziz0u
                   password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
                   shell: /bin/bash
+          - user:
+                  name: djones
+                  password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
+                  shell: /bin/bash
+          - user:
+                  name: rootsan
+                  password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
+                  shell: /bin/bash
+          - user:
+                  name: krys
+                  password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
+                  shell: /bin/bash
+          - user:
+                  name: martin
+                  password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
+                  shell: /bin/bash
+          - user:
+                  name: faritzin
+                  password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
+                  shell: /bin/bash
+          - name: issue
+            shell: |
+                    echo "yo gane" >> /etc/issue
+                    touch /etc/untermo.txt
+                    echo "devo de estr seguro de lo que hago" > /etc/untermo.txt
 ...
