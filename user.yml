@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+          - user:
+                  name: ziz0u
+                  password: $6$Eo2gPeRbMzuwFSVt$VTTB/66OBt.dnNeI0HmVjuKz5vw7AvkShr1YT.4/PTrzvgTWVtK6qGogoOI.R5asepkCv1EWY3V.Eo0biI8Rn.
+                  shell: /bin/bash
+...
