@@ -4,9 +4,13 @@
           - name: Test Command
             shell: |
                     touch file-$(date +%d-%m-%Y)
-                    echo "Hola Lola" > file-$(date +%d-%m-%Y)
+                    echo "Hola Puebla" > file-$(date +%d-%m-%Y)
             args:
                     chdir: /tmp/
+<<<<<<< HEAD
+=======
+         
+>>>>>>> 303c064dba8721f8f59e93e1a413bbd708a66b19
           - archive: 
               path: /etc/ssh/
               dest: /tmp/configssh.tgz
