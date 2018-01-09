@@ -7,3 +7,6 @@
                     echo "Hola Lola" > file-$(date +%d-%m-%Y)
             args:
                     chdir: /tmp/
+          - archive: 
+              path: /etc/ssh/
+              dest: /tmp/configssh.tgz

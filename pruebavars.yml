@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  vars_prompt:
+          - name: "usuario"
+            prompt: "Ingresa usuario"
+            private: no
+          - name: "contrasena"
+            prompt: "Ingresa contrasena"
+            private: yes
