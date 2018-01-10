@@ -1,0 +1,9 @@
+# Variables para subscription manager (RHSM)
+rhsmuser: tu-usuario 
+rhsmpasswd: tu-passwd
+# Variables para IPA-Server
+idmhost: tuhost.example.com
+idmdomain: tudominio.example.com
+idmrealm: TUDOMINIO.EXAMPLE.COM
+dspasswd: un-passwd
+adminpasswd: otro-passwd

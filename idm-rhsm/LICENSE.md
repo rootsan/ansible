@@ -1,0 +1,1 @@
+Este trabajo esta liberado bajo los terminos de Creative Commons Attribution 4.0 International (CC BY 4.0), para consultar la referencia principal de esta licencia, visita https://creativecommons.org/licenses/by/4.0/

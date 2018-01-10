@@ -1,0 +1,6 @@
+---
+# Instalación de IPA-Server en RHEL 7.x
+- hosts: ipa-server
+  remote_user: root
+  roles:
+          - instalandoIPA 

@@ -1,0 +1,67 @@
+---
+- name: Suscribiendo a RHEL.
+  redhat_subscription:
+          state: present
+          username: "{{ rhsmuser }}"
+          password: "{{ rhsmpasswd }}"
+          autosubscribe: true
+- name: Configura canal base e instala IPA-Server.
+  shell: |
+          subscription-manager repos --disable=*
+          subscription-manager repos --enable=rhel-7-server-rpms
+- name: Actualizando a RHEL.
+  yum:
+          name: '*'
+          state: latest
+- name: Instalando IPA-Server.
+  yum: name={{ item }} state=present
+  with_items:
+          - ipa-server
+          - ipa-server-dns
+- name: Configurando IPA-Server.
+  command: ipa-server-install --hostname={{ idmhost }} --domain={{ idmdomain }} --realm={{ idmrealm }} --ds-password={{ dspasswd }} --admin-password={{ adminpasswd }} --mkhomedir --setup-dns --no-forwarders -U
+- name: Habilitando y aplicando reglas de FW.
+  systemd:
+          name: firewalld
+          enabled: yes
+          state: restarted
+- firewalld:
+        port: 80/tcp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 443/tcp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 389/tcp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 636/tcp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 88/tcp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 53/tcp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 464/udp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 53/udp
+        permanent: true
+        state: enabled
+- firewalld:
+        port: 123/tcp
+        permanent: true 
+        state: enabled
+- name: Recargando el FW.
+  systemd:
+          name: firewalld
+          state: restarted
