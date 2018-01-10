@@ -1,9 +1,9 @@
-#:::- IPA-Server y Red Hat® Subscription Manager -:::
-##El objetivo de estos playbooks son:
+# :::- IPA-Server y Red Hat® Subscription Manager -:::
+## El objetivo de estos playbooks son:
 * La instalación del servidor IPA sobre Red Hat® Enterprise Linux Server 7.x.
 * Crear registros de los hosts con Red Hat Enterprise Linux Server® y otras distribuciones GNU/Linux y Unix que soporten el cliente de IPA de la versión instalada.
 * Despertar la creatividad de los administradores de sistemas para aprovechar al cuanto sea posible las capacidades de las suscripciones de Red Hat® y Ansible.
-#:::- Requerimientos -:::
+# :::- Requerimientos -:::
 1. Contar con subscripción vigente y derecho para suscribir un RHEL físico o virtual.
 2. El sistema objetivo preferentemente nuevo y exclusivo para desempeñarse como servidor de Identidades (Red Hat® IDM Server).
 3. Contar con credenciales y permisos suficientes para registrar un nuevo sistema.
