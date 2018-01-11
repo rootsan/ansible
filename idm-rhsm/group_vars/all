@@ -1,6 +1,7 @@
 # Variables para subscription manager (RHSM)
-rhsmuser: tu-usuario 
+rhsmuser: tu-usuario
 rhsmpasswd: tu-passwd
+rhsmpoolid: TUPOOL8a85f98c60c2c2b40160c323a696190e
 # Variables para IPA-Server
 idmhost: tuhost.example.com
 idmdomain: tudominio.example.com

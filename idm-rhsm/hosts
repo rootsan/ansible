@@ -1,4 +1,4 @@
 # Indique en esta sección la dirección IP donde instalará IPA-Serveri
 [ipa-server]
-192.168.122.32
+192.168.122.9
 # Indique en esta sección las direcciones IP de los clientes a registrar en el servicio de IPA-Server
