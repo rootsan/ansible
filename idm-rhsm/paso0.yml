@@ -3,4 +3,4 @@
 - hosts: ipa-server
   remote_user: root
   roles:
-          - instalandoIPA 
+          - instalandoIPAS

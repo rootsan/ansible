@@ -8,13 +8,17 @@
   shell: |
           subscription-manager attach --pool={{ rhsmpoolid }}
           subscription-manager repos --disable=*
-          subscription-manager repos --enable=rhel-7-server-rpms
+          subscription-manager repos --enable={{ repobc }}
+- name: Actualizando a RHEL.
+  yum:
+          name: '*'
+          state: latest
 - name: Actualizando a RHEL.
   yum:
           name: '*'
           state: latest
 - name: Instalando IPA-Server.
-  yum: name={{ item }} state=present
+  yum: name= {{ item }} state=present
   with_items:
           - ipa-server
           - ipa-server-dns
