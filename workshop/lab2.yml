@@ -1,0 +1,29 @@
+---
+- hosts: 192.168.122.26
+  remote_user: root
+  tasks:
+          - name: Instala httpd server
+            yum: 
+              name: "@Web Server" 
+              state: installed
+          - name: Aplicando reglas de FW
+            firewalld: 
+              port: "{{ item }}"
+              permanent: True 
+              state: enabled
+            with_items:
+                    - "80/tcp"
+                    - "443/tcp"
+          - name: Haciendo persistente el servicio.
+            systemd:
+                    name: httpd
+                    state: started
+                    enabled: True
+          - name: Copiando archivos.
+            copy:
+                    src: demo/
+                    dest: /var/www/html
+                    owner: apache
+                    group: apache
+                    mode: 0755
+...
