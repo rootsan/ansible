@@ -1,0 +1,49 @@
+---
+- hosts: ipa-server 
+  remote_user: root
+
+  tasks:
+          - name: Suscribiendo a RHEL
+            redhat_subscription:
+                    state: present
+                    username: "{{ rhsmuser }}"
+                    password: "{{ rhsmpasswd }}"
+          - name: Configura canal base e instala IPA-Server.
+            shell: |
+                    subscription-manager attach --auto
+                    subscription-manager repos --disable=*
+                    subscription-manager repos --enable={{ repobc }}
+          - name: Update RHEL
+            yum:
+                    name: '*'
+                    state: latest
+
+          - name: Instalando IPA.
+            yum:
+                    name:
+                            - ipa-server
+                            - ipa-server-dns            
+                    state: present
+
+          - name: Configurando IPA-Server.
+            command: ipa-server-install --hostname={{ idmhost }} --domain={{ idmdomain }} --realm={{ idmrealm }} --ds-password={{ dspasswd }} --admin-password={{ adminpasswd }} --mkhomedir --setup-dns --no-forwarders -U
+          - name: Habilitando y aplicando reglas de FW.
+            shell: |
+                    firewall-cmd --permanent --add-port={{item}}
+            with_items:
+                    - "{{'80/tcp'}}"
+                    - "{{'443/tcp'}}"
+                    - "{{'389/tcp'}}"
+                    - "{{'636/tcp'}}"
+                    - "{{ '88/tcp'}}"
+                    - "{{'53/tcp'}}"
+                    - "{{'464/udp'}}"
+                    - "{{'53/udp'}}"
+                    - "{{'123/tcp'}}"
+            notify:
+                    - restart firewall
+                    - name: Recargando el FW.
+                      systemd:
+                              name: firewalld
+                              state: restarted
+...
