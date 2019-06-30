@@ -8,11 +8,11 @@
             yum:
                     name: "@Basic Web Server"
                     state: latest
-          - name: Check service
-            systemd:
-                    name: httpd
-                    state: restarted
-                    daemon_reload: yes
-                    enabled: yes
+#          - name: Check service
+#            systemd:
+#                    name: httpd
+#                    state: restarted
+#                    daemon_reload: yes
+#                    enabled: yes
 
 ...
