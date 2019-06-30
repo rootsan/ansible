@@ -1,5 +1,5 @@
 ---
-# Check file and copy content 
+# Check file and copy content to web site 
 - hosts: all
   remote_user: root
 
@@ -9,7 +9,7 @@
                     url: http://clau.larenata.int/files/index.html
                     dest: /var/www/html/
                     checksum: sha256:http://clau.larenata.int/files/checksum.txt
-
+          - name: Copy file
             copy:
                     src: opt/images/BankIto.png
                     dest: /var/www/html/images/BankIto.png
