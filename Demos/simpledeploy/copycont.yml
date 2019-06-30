@@ -1,0 +1,19 @@
+---
+# Check file and copy content 
+- hosts: cd
+  remote_user: root
+
+  tasks:
+          - name: Download main file
+            get_url:
+                    url: http://clau.larenata.int/files/index.html
+                    dest: /var/www/html/
+                    checksum: sha256:http://clau.larenata.int/files/checksum.txt
+
+            copy:
+                    src: opt/images/BankIto.png
+                    dest: /var/www/html/images/BankIto.png
+                    owner: apache
+                    group: apache
+
+...
