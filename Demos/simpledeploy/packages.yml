@@ -1,6 +1,6 @@
 ---
 # Update all packages related with Web Server
-- hosts: cd
+- hosts: all
   remote_user: root
 
   tasks:
