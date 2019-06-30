@@ -1,9 +1,0 @@
----
-- hosts: cd
-  remote_user: root
-  
-  tasks:
-          - name: Check returns a status 200
-            uri:
-                    url: http://clau.larenata.int
-...

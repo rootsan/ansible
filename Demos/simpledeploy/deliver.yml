@@ -1,9 +1,0 @@
----
-- hosts: cd
-  remote_user: root
-
-  roles:
-          - update
-          - copy
-          - test
-
