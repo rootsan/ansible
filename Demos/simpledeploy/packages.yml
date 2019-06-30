@@ -7,7 +7,7 @@
           - name: Update
             yum:
                     name: "@Basic Web Server"
-                    state: latest
+                    state: present
 #          - name: Check service
 #            systemd:
 #                    name: httpd
