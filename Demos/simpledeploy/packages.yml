@@ -7,12 +7,11 @@
           - name: Update
             yum:
                     name: "@Basic Web Server"
-                    state: present
-#          - name: Check service
-#            systemd:
-#                    name: httpd
-#                    state: restarted
-#                    daemon_reload: yes
-#                    enabled: yes
-
+                    state: latest
+          - name: Check service
+            systemd:
+                    name: httpd
+                    state: restarted
+                    daemon_reload: yes
+                    enabled: yes
 ...
