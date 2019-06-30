@@ -1,0 +1,13 @@
+---
+# Check file and copy content 
+- hosts: cd
+  remote_user: root
+
+  tasks:
+          - name: Copy dir
+            copy:
+                    src: opt/images/BankIto.png
+                    dest: /var/www/html/images/BankIto.png
+                    owner: apache
+                    group: apache
+...
