@@ -1,6 +1,6 @@
 ---
 # Check file and copy content 
-- hosts: cd
+- hosts: all
   remote_user: root
 
   tasks:
