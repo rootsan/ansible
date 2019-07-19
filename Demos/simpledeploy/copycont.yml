@@ -8,7 +8,7 @@
             get_url:
                     url: http://clau.larenata.int/files/index.html
                     dest: /var/www/html/
-                    checksum: sha256:19c7b7241fbbc903dfc41841ec3e4a103413037948352802a250fa806aa68d38
+                    checksum: sha256:3bf209c41f6fbda96a17012cf3b2559a29e5761123762774e1a5c28ff6d42e90
           - name: Copy file
             copy:
                     src: opt/images/BankIto.png
