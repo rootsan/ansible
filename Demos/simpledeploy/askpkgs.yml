@@ -1,0 +1,15 @@
+---
+- hosts: rhel7
+  remote_user: root
+  vars_prompt:
+
+    - name: pkginst 
+      prompt: "¿Qué paquete desea instalar?"
+      private: no
+
+  tasks:
+
+    - yum:
+            name: "{{ pkginst }}"
+            state: present
+...
