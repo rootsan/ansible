@@ -1,8 +1,9 @@
-
-- name: Get name and version of distro
-  hosts: all
+---
+- hosts: all
+  gather_facts: yes
+  remote_user: root
   tasks:
-    - name: save output of command
-      command: cat /etc/system-release
-      register: info
-    - debug: msg="{{ info.stdout }}"
+  - name: Distribution
+    debug: msg="{{ ansible_distribution }}"
+  - name: Distribution version
+    debug: msg="{{ ansible_distribution_version}}"
