@@ -1,7 +1,0 @@
-- name: Get name and version of distro
-  hosts: all
-  tasks:
-    - name: save output of command
-      command: cat /etc/system-release
-      register: info
-    - debug: msg="{{ info.stdout }}"
